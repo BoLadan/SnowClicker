@@ -1,13 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "ClickableObject.h"
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
     while (window.isOpen())
     {
+
         sf::Event event;
         while (window.pollEvent(event))
         {
