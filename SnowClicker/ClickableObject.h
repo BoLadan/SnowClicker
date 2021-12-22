@@ -3,6 +3,7 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 using sf::Vector2f;
+using sf::Vector2i;
 
 class ClickableObject
 {
@@ -13,7 +14,8 @@ private:
 public:
 	ClickableObject();
 	ClickableObject(Vector2f pos, float radius);
-	bool inBounds(Vector2f mousepos);
+	bool inBounds(Vector2i mousepos);
+	void checkForInput();
 	void test();
 };
 

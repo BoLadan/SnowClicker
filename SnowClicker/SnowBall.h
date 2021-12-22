@@ -1,8 +1,10 @@
 #pragma once
+#include "ClickableObject.h"
 #include <SFML/Graphics.hpp>
-#include <iostream>
 using sf::Vector2f;
-class SnowBall
+using sf::Vector2i;
+
+class SnowBall : ClickableObject
 {
 public:
 	SnowBall();
