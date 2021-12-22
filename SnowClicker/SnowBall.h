@@ -8,6 +8,7 @@ class SnowBall : ClickableObject
 {
 public:
 	SnowBall();
+	Draw();
 
 private:
 
