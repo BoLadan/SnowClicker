@@ -1,4 +1,5 @@
 #include "ClickableObject.h"
+#include <iostream>
 
 
 Vector2f position;
@@ -27,9 +28,9 @@ bool ClickableObject :: inBounds(Vector2i mousepos)
 
 void ClickableObject::checkForInput()
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && inBounds(sf::Mouse::getPosition()))
 	{
-		inBounds(sf::Mouse::getPosition());
+		cout << sf::Mouse::getPosition();
 	}
 }
 

@@ -1,12 +1,13 @@
 #include <SFML/Graphics.hpp>
 #include "ClickableObject.h"
+#include "SnowBall.h"
 
 int main()
 {
+    SnowBall snowball;
 
-    sf::RenderWindow window(sf::VideoMode(1200, 800), "SFML works!");
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "Snow CLicker");
+    //sf::CircleShape shape(100.f);
 
     while (window.isOpen())
     {
@@ -19,7 +20,8 @@ int main()
         }
 
         window.clear();
-        window.draw(shape);
+        snowball.snowballShape().setPosition(snowball.getPosition());
+        window.draw(snowball.snowballShape());
         window.display();
     }
 
