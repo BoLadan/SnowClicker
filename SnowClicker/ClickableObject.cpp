@@ -17,7 +17,7 @@ ClickableObject::ClickableObject(Vector2f pos, float radius)
 }
 
 // check if the mouse position is within the bounds of the object
-// return true if that is the case``
+// return true if that is the case
 bool ClickableObject :: inBounds(Vector2f mousepos)
 {
 	return (mousepos.x > position.x - shapeRadius && mousepos.x < position.x + shapeRadius) &&
