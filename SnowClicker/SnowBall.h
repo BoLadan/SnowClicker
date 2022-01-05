@@ -5,7 +5,7 @@
 using sf::Vector2f;
 using sf::Vector2i;
 
-class SnowBall : ClickableObject
+class SnowBall : public ClickableObject
 {
 public:
 	SnowBall();

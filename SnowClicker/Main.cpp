@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 #include "ClickableObject.h"
 #include "SnowBall.h"
 
@@ -17,10 +19,24 @@ int main()
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            //close the game with the escape button.
+            if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+            {
+                window.close();
+            }
+
+            //if inBounds on ClickableObject is true, preform the action
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            {
+                snowball.checkForInput();
+            }
+            
         }
 
         window.clear();
-        snowball.snowballShape().setPosition(snowball.getPosition());
+        //snowball.snowballShape().setPosition(snowball.getPosition());
+        snowball.snowballShape().setPosition(100.f,100.f);
         window.draw(snowball.snowballShape());
         window.display();
     }

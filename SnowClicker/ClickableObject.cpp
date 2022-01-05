@@ -6,11 +6,13 @@ Vector2f position;
 
 float shapeRadius;
 
+//base constructor
 ClickableObject::ClickableObject() 
 {
 
 }
 
+//constructor
 ClickableObject::ClickableObject(Vector2f pos, float radius)
 {
 	position = pos;
@@ -28,9 +30,11 @@ bool ClickableObject :: inBounds(Vector2i mousepos)
 
 void ClickableObject::checkForInput()
 {
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && inBounds(sf::Mouse::getPosition()))
+	std::cout << "inBounds returned: " + inBounds(sf::Mouse::getPosition());
+	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && inBounds(sf::Mouse::getPosition()) == true)
 	{
-		cout << sf::Mouse::getPosition();
+		std::cout << "Mouse X position is: " + sf::Mouse::getPosition().x;
+		std::cout << "Mouse Y position is: " + sf::Mouse::getPosition().y;
 	}
 }
 

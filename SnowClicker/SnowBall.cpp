@@ -1,4 +1,5 @@
 #include "SnowBall.h"
+#include "ClickableObject.h"
 
 Vector2f pos;
 
@@ -20,6 +21,8 @@ Vector2f SnowBall::getPosition()
 	Vector2f pos;
 	pos.x = 0;
 	pos.y = 0;
+	//std::cout << pos.x;
+	//std::cout << pos.y;
 	return pos;
 }
 
