@@ -10,12 +10,16 @@ class ClickableObject
 	//virtual void action() = 0;
 
 private:
+	Vector2f position;
 
 public:
 	ClickableObject();
-	ClickableObject(Vector2f pos, float radius);
+	ClickableObject(float x, float y, float radius);
 	bool inBounds(Vector2i mousepos);
-	void checkForInput();
+	void checkForInput(sf::RenderWindow &window);
+	void setPosition(Vector2f pos);
 	void test();
+
+	float shapeRadius;
 };
 

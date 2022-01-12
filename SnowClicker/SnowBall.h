@@ -8,12 +8,11 @@ using sf::Vector2i;
 class SnowBall : public ClickableObject
 {
 public:
-	SnowBall();
-	sf::CircleShape snowballShape();
-	Vector2f getPosition();
+	SnowBall(float x, float y, float radius);
+	sf::CircleShape snowballShape;
+
 
 private:
-	Vector2f pos;
 
 };
 

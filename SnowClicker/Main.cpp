@@ -6,7 +6,8 @@
 
 int main()
 {
-    SnowBall snowball;
+    SnowBall snowball(100, 0, 100);
+
 
     sf::RenderWindow window(sf::VideoMode(1200, 800), "Snow CLicker");
     //sf::CircleShape shape(100.f);
@@ -29,15 +30,13 @@ int main()
             //if inBounds on ClickableObject is true, preform the action
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
             {
-                snowball.checkForInput();
+                snowball.checkForInput(window);
             }
             
         }
 
         window.clear();
-        //snowball.snowballShape().setPosition(snowball.getPosition());
-        snowball.snowballShape().setPosition(100.f,100.f);
-        window.draw(snowball.snowballShape());
+        window.draw(snowball.snowballShape);
         window.display();
     }
 
