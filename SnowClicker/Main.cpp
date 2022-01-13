@@ -3,11 +3,13 @@
 #include <SFML/System.hpp>
 #include "ClickableObject.h"
 #include "SnowBall.h"
+#include "SnowCounter.h"
 
 int main()
 {
     Player player;
-    SnowBall snowball(100, 0, 100, &player);
+    SnowBall snowball(100, 200, 100, &player);
+    SnowCounter snowCounter(&player);
 
 
     sf::RenderWindow window(sf::VideoMode(1200, 800), "Snow CLicker");
