@@ -35,10 +35,10 @@ bool ClickableObject :: inBounds(Vector2i mousepos)
 	{
 		state = false;
 	}
-	std::cout << "Mouse X position is: " << mousepos.x << std::endl;
+	/*std::cout << "Mouse X position is: " << mousepos.x << std::endl;
 	std::cout << "Mouse Y position is: " << mousepos.y << std::endl;
 	std::cout << "Magnitude is: " << magnitude << std::endl;
-	std::cout << "state of bool is: " <<state <<std::endl;
+	std::cout << "state of bool is: " <<state <<std::endl;*/
 	return state;
 }
 
@@ -47,7 +47,8 @@ void ClickableObject::checkForInput(sf::RenderWindow &window)
 {
 	if (inBounds(sf::Mouse::getPosition(window)))
 	{
-		std::cout << "Action!!" << std::endl;
+		//std::cout << "Action!!" << std::endl;
+		action();
 	}
 	
 }
@@ -57,10 +58,10 @@ void ClickableObject::setPosition(Vector2f pos)
 	position = pos;
 }
 
-void ClickableObject :: test() 
+void ClickableObject::action()
 {
-	std::cout << "hellow world.";
 }
+
 
 
 

@@ -6,7 +6,8 @@
 
 int main()
 {
-    SnowBall snowball(100, 0, 100);
+    Player player;
+    SnowBall snowball(100, 0, 100, &player);
 
 
     sf::RenderWindow window(sf::VideoMode(1200, 800), "Snow CLicker");

@@ -7,7 +7,7 @@ using sf::Vector2i;
 
 class ClickableObject
 {
-	//virtual void action() = 0;
+	virtual void action() = 0;
 
 private:
 	Vector2f position;
@@ -18,8 +18,6 @@ public:
 	bool inBounds(Vector2i mousepos);
 	void checkForInput(sf::RenderWindow &window);
 	void setPosition(Vector2f pos);
-	void test();
-
 	float shapeRadius;
 };
 
