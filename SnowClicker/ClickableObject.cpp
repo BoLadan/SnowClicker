@@ -40,19 +40,16 @@ bool ClickableObject :: inBounds(Vector2i mousepos)
 	std::cout << "Magnitude is: " << magnitude << std::endl;
 	std::cout << "state of bool is: " <<state <<std::endl;
 	return state;
-	/*return (mousepos.x > position.x - shapeRadius && mousepos.x < position.x + shapeRadius) &&
-		(mousepos.y > position.y - shapeRadius && mousepos.y < position.y + shapeRadius);*/
-
 }
 
+//
 void ClickableObject::checkForInput(sf::RenderWindow &window)
 {
-	//std::cout << "inBounds returned: " + inBounds(sf::Mouse::getPosition());
-	if (sf::Mouse::isButtonPressed(sf::Mouse::Left) && inBounds(sf::Mouse::getPosition(window)))
+	if (inBounds(sf::Mouse::getPosition(window)))
 	{
-		//std::cout << "Mouse X position is: " << sf::Mouse::getPosition().x << std::endl;
-		//std::cout << "Mouse Y position is: " << sf::Mouse::getPosition().y << std::endl;
+		std::cout << "Action!!" << std::endl;
 	}
+	
 }
 
 void ClickableObject::setPosition(Vector2f pos)

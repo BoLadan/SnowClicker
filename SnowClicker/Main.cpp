@@ -27,10 +27,13 @@ int main()
                 window.close();
             }
 
-            //if inBounds on ClickableObject is true, preform the action
-            if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            //check for input on the left mouse button 
+            if (event.type == sf::Event::MouseButtonPressed)
             {
-                snowball.checkForInput(window);
+                if (event.mouseButton.button == sf::Mouse::Left)
+                {
+                    snowball.checkForInput(window);
+                }
             }
             
         }
