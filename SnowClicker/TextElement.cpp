@@ -1,6 +1,6 @@
 #include "TextElement.h"
 
-//Constructor for the counter text elements
+//Constructor for the main snow counter text element.
 TextElement::TextElement(Player *p, sf::Font *f)
 {
 	player = p;
@@ -11,16 +11,17 @@ TextElement::TextElement(Player *p, sf::Font *f)
 	}
 
 	textElement.setFont(*f);
-	textElement.setCharacterSize(24);
+	textElement.setCharacterSize(34);
 	textElement.setFillColor(sf::Color::White);
 	textElement.setStyle(sf::Text::Regular);
 	textElement.setString("Snow gained: " + std::to_string(player->getScore()));
+	textElement.setPosition(450,300);
 
 	std::cout << "Snow gained: " + std::to_string(player->getScore()) << std::endl;
 }
 
-// constructor for the regular text elements
-TextElement::TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text)
+// constructor for the regular text elements and other counters
+TextElement::TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text, float x, float y)
 {
 	if (!font->loadFromFile("Fonts/CheeseToast.ttf"))
 	{
@@ -32,6 +33,7 @@ TextElement::TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Ui
 	textElement.setFillColor(color);
 	textElement.setStyle(textStyle);
 	textElement.setString(text);
+	textElement.setPosition(x, y);
 }
 
 
@@ -41,9 +43,13 @@ void TextElement::UpdateSnowCounter(sf::RenderWindow *window)
 	window->draw(getText());
 }
 
-sf::Vector2f TextElement::textPosition()
+sf::Vector2f TextElement::textPosition(float x, float y)
 {
-	return sf::Vector2f();
+	sf::Vector2f pos;
+	pos.x = x;
+	pos.y = y;
+
+	return pos;
 }
 
 sf::Text TextElement::getText()

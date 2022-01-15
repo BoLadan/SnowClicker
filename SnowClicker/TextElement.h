@@ -9,11 +9,11 @@ private:
 	sf::Font *font;
 	Player *player;
 
-	sf::Vector2f textPosition();
+	sf::Vector2f textPosition(float x, float y);
 
 public:
 	TextElement(Player *p, sf::Font *f);
-	TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text);
+	TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text, float x, float y);
 	void UpdateSnowCounter(sf::RenderWindow *window);
 	sf::Text getText();
 };
