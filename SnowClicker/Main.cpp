@@ -3,13 +3,18 @@
 #include <SFML/System.hpp>
 #include "ClickableObject.h"
 #include "SnowBall.h"
-#include "SnowCounter.h"
+#include "TextElement.h"
 
 int main()
 {
     Player player;
+
+    //Credits for font: Khurasan.
+    sf::Font font;
+    font.loadFromFile("Fonts/CheeseToast.ttf");
+
     SnowBall snowball(100, 200, 100, &player);
-    SnowCounter snowCounter(&player);
+    TextElement snowCounter(&player, &font);
 
 
     sf::RenderWindow window(sf::VideoMode(1200, 800), "Snow CLicker");
@@ -36,13 +41,16 @@ int main()
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
                     snowball.checkForInput(window);
+                    snowCounter.UpdateSnowCounter(&window);
                 }
             }
             
         }
-
+        
+        //draw
         window.clear();
         window.draw(snowball.snowballShape);
+        window.draw(snowCounter.getText());
         window.display();
     }
 

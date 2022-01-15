@@ -27,7 +27,7 @@
     <ClCompile Include="Player.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SnowCounter.cpp">
+    <ClCompile Include="TextElement.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,7 +41,7 @@
     <ClInclude Include="Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SnowCounter.h">
+    <ClInclude Include="TextElement.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

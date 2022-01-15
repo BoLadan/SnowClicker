@@ -42,12 +42,11 @@ bool ClickableObject :: inBounds(Vector2i mousepos)
 	return state;
 }
 
-//
+//Preform the action of the ClickableObject. Every Child class has it's own action method.
 void ClickableObject::checkForInput(sf::RenderWindow &window)
 {
 	if (inBounds(sf::Mouse::getPosition(window)))
 	{
-		//std::cout << "Action!!" << std::endl;
 		action();
 	}
 	
