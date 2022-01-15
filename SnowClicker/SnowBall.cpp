@@ -16,12 +16,17 @@ float SnowBall::getScorePerClick()
 
 void SnowBall::addScorePerClick(float amount)
 {
-	scorePerClick += amount;
+	scorePerClick += (amount * getBoost());
 }
 
-void SnowBall::multiplyScorePerClick(float multiplier)
+float SnowBall::getBoost()
 {
-	scorePerClick = scorePerClick * multiplier;
+	return boost;
+}
+
+void SnowBall::setBoost(float amount)
+{
+	boost += amount;
 }
 
 void SnowBall::action()

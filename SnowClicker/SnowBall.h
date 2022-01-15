@@ -14,12 +14,14 @@ public:
 	sf::CircleShape snowballShape;
 	float getScorePerClick();
 	void addScorePerClick(float amount);
-	void multiplyScorePerClick(float multiplier);
+	float getBoost();
+	void setBoost(float amount);
 	virtual void action();
 
 private:
 
 	float scorePerClick = 0.1;
+	float boost = 1;
 	Player *player;
 
 };

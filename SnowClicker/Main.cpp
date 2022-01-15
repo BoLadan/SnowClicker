@@ -3,6 +3,7 @@
 #include <SFML/System.hpp>
 #include "ClickableObject.h"
 #include "SnowBall.h"
+#include "Upgrade.h"
 #include "TextElement.h"
 
 int main()
@@ -14,6 +15,7 @@ int main()
     font.loadFromFile("Fonts/CheeseToast.ttf");
 
     SnowBall snowball(100, 200, 100, &player);
+    Upgrade snowman(800, 200, 200, 75, 15, "Snowman", 0.1);
     TextElement snowCounter(&player, &font);
 
 
@@ -40,8 +42,9 @@ int main()
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
-                    snowball.checkForInput(window);
+                    snowball.checkForInput(window, snowman.rect);
                     snowCounter.UpdateSnowCounter(&window);
+                    snowman.checkForInput(window, snowman.rect);
                 }
             }
             
@@ -50,6 +53,7 @@ int main()
         //draw
         window.clear();
         window.draw(snowball.snowballShape);
+        window.draw(snowman.rect);
         window.draw(snowCounter.getText());
         window.display();
     }

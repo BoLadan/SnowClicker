@@ -1,5 +1,4 @@
 #include "ClickableObject.h"
-#include <iostream>
 
 //base constructor
 ClickableObject::ClickableObject() 
@@ -7,7 +6,6 @@ ClickableObject::ClickableObject()
 	shapeRadius = 100;
 }
 
-//constructor
 ClickableObject::ClickableObject(float x, float y, float radius)
 {
 	position.x = x;
@@ -17,7 +15,7 @@ ClickableObject::ClickableObject(float x, float y, float radius)
 
 // check if the mouse position is within the bounds of the object
 // return true if that is the case
-bool ClickableObject :: inBounds(Vector2i mousepos)
+bool ClickableObject :: inCircleBounds(Vector2i mousepos)
 {
 	bool state;
 	Vector2f mouseposf = Vector2f(mousepos.x, mousepos.y);
@@ -42,13 +40,41 @@ bool ClickableObject :: inBounds(Vector2i mousepos)
 	return state;
 }
 
-//Preform the action of the ClickableObject. Every Child class has it's own action method.
-void ClickableObject::checkForInput(sf::RenderWindow &window)
+//werkt niet
+bool ClickableObject::inRectBounds(Vector2i mousepos, sf::RectangleShape rect)
 {
-	if (inBounds(sf::Mouse::getPosition(window)))
+	bool state;
+	Vector2f mouseposf = Vector2f(mousepos.x, mousepos.y);
+	Vector2f positionToCenter = Vector2f(rect.getScale().x/2, rect.getScale().y/2);
+	Vector2f center = position + positionToCenter;
+	Vector2f distance = (center - mouseposf);
+
+	float magnitude = sqrt(distance.x * distance.x + distance.y * distance.y);
+
+	if (magnitude < rect.getScale().x / 2 && magnitude < rect.getScale().y / 2)
+	{
+		state = true;
+	}
+	else
+	{
+		state = false;
+	}
+
+	return state;
+}
+
+//Preform the action of the ClickableObject. Every Child class has it's own action method.
+void ClickableObject::checkForInput(sf::RenderWindow &window, sf::RectangleShape rect)
+{
+	if (inCircleBounds(sf::Mouse::getPosition(window)))
 	{
 		action();
 	}
+
+	/*if (inRectBounds(sf::Mouse::getPosition(window), rect))
+	{
+
+	}*/
 	
 }
 

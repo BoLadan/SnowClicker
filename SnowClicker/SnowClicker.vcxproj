@@ -156,12 +156,14 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="SnowBall.cpp" />
     <ClCompile Include="TextElement.cpp" />
+    <ClCompile Include="Upgrade.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ClickableObject.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="SnowBall.h" />
     <ClInclude Include="TextElement.h" />
+    <ClInclude Include="Upgrade.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
