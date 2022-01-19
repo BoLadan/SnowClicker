@@ -10,14 +10,17 @@ TextElement::TextElement(Player *p, sf::Font *f)
 		std::cout << "COULD NOT LOAD FONT";
 	}
 
+	std::stringstream stream;
+	stream << std::fixed << std::setprecision(2) << player->getScore();
+
 	textElement.setFont(*f);
 	textElement.setCharacterSize(34);
 	textElement.setFillColor(sf::Color::White);
 	textElement.setStyle(sf::Text::Regular);
-	textElement.setString("Snow gained: " + std::to_string(player->getScore()));
+	textElement.setString("Snow gained: " + stream.str());
 	textElement.setPosition(450,300);
 
-	std::cout << "Snow gained: " + std::to_string(player->getScore()) << std::endl;
+	//std::cout << "Snow gained: " + std::to_string(player->getScore()) << std::endl;
 }
 
 // constructor for the regular text elements and other counters
@@ -39,7 +42,10 @@ TextElement::TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Ui
 
 void TextElement::UpdateSnowCounter(sf::RenderWindow *window)
 {
-	textElement.setString("Snow gained: " + std::to_string(player->getScore()));
+	std::stringstream stream;
+	stream << std::fixed << std::setprecision(2) << player->getScore();
+
+	textElement.setString("Snow gained: " + stream.str());
 	window->draw(getText());
 }
 

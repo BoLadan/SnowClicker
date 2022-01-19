@@ -1,4 +1,7 @@
 #pragma once
+#include <iostream>
+#include <iomanip>
+#include <sstream>
 #include "Player.h"
 #include "SFML/Graphics.hpp"
 
