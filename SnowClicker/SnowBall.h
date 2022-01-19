@@ -23,6 +23,7 @@ private:
 	float scorePerClick = 0.1;
 	float boost = 1;
 	Player *player;
+	sf::RenderWindow *window;
 
 };
 

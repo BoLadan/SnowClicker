@@ -8,13 +8,12 @@ class Upgrade : public ClickableObject
 private:
 
 	sf::String name;
-	float boost;
+	float boost = 0.1f;
 	int cost;
 
 public:
 
-	Upgrade();
-	Upgrade(float posX, float posY, float sizeX, float sizeY, int upgradeCost, sf::String upgradeName, float upgradeBoost);
+	Upgrade(float posX, float posY, int upgradeCost, sf::String upgradeName, float upgradeBoost);
 	sf::RectangleShape rect;
 	int getCost();
 	sf::String getName();

@@ -7,6 +7,7 @@ SnowBall::SnowBall(float x, float y, float radius, Player *p) : ClickableObject(
 	snowballShape.setFillColor(sf::Color::White);
 	snowballShape.setPosition(x, y);
 	player = p;
+	//window = w;
 }
 
 float SnowBall::getScorePerClick()
@@ -31,8 +32,9 @@ void SnowBall::setBoost(float amount)
 
 void SnowBall::action()
 {
+
 	player->addToScore(scorePerClick);
-	std::cout <<"score: " << player->getScore() << std::endl;
+	std::cout << "score: " << player->getScore() << std::endl;
 }
 
 
