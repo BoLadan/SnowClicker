@@ -42,9 +42,9 @@ int main()
             {
                 if (event.mouseButton.button == sf::Mouse::Left)
                 {
-                    snowball.checkForInput(window, snowman.rect);
+                    snowball.checkForInput(window, &snowball.snowballShape);
                     snowCounter.UpdateSnowCounter(&window);
-                    snowman.checkForInput(window, snowman.rect);
+                    snowman.checkForInput(window, &snowman.rect);
                 }
             }
             

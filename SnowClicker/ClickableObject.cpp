@@ -40,41 +40,19 @@ bool ClickableObject :: inCircleBounds(Vector2i mousepos)
 	return state;
 }
 
-//werkt niet
-bool ClickableObject::inRectBounds(Vector2i mousepos, sf::RectangleShape rect)
+bool ClickableObject::inRectBounds(Vector2i mousepos, sf::Shape *shape)
 {
-	bool state;
-	Vector2f mouseposf = Vector2f(mousepos.x, mousepos.y);
-	Vector2f positionToCenter = Vector2f(rect.getScale().x/2, rect.getScale().y/2);
-	Vector2f center = position + positionToCenter;
-	Vector2f distance = (center - mouseposf);
-
-	float magnitude = sqrt(distance.x * distance.x + distance.y * distance.y);
-
-	if (magnitude < rect.getScale().x / 2 && magnitude < rect.getScale().y / 2)
-	{
-		state = true;
-	}
-	else
-	{
-		state = false;
-	}
-
-	return state;
+	return shape->getGlobalBounds().contains(sf::Vector2f(mousepos));
 }
 
 //Preform the action of the ClickableObject. Every Child class has it's own action method.
-void ClickableObject::checkForInput(sf::RenderWindow &window, sf::RectangleShape rect)
+void ClickableObject::checkForInput(sf::RenderWindow &window, sf::Shape *shape)
 {
-	if (inCircleBounds(sf::Mouse::getPosition(window)))
+	if (dynamic_cast<const sf::CircleShape*>(shape) != nullptr && inCircleBounds(sf::Mouse::getPosition(window)) ||
+		dynamic_cast<const sf::RectangleShape*>(shape) != nullptr && inRectBounds(sf::Mouse::getPosition(window), shape))
 	{
 		action();
 	}
-
-	/*if (inRectBounds(sf::Mouse::getPosition(window), rect))
-	{
-
-	}*/
 	
 }
 

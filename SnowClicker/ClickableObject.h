@@ -16,8 +16,8 @@ public:
 	ClickableObject();
 	ClickableObject(float x, float y, float radius);
 	bool inCircleBounds(Vector2i mousepos);
-	bool inRectBounds(Vector2i mousepos, sf::RectangleShape rect);
-	void checkForInput(sf::RenderWindow &window, sf::RectangleShape rect);
+	bool inRectBounds(Vector2i mousepos, sf::Shape *rect);
+	void checkForInput(sf::RenderWindow &window, sf::Shape *shape);
 	void setPosition(Vector2f pos);
 	float shapeRadius;
 };
