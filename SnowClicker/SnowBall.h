@@ -13,14 +13,12 @@ public:
 	SnowBall(float x, float y, float radius, Player *p);
 	sf::CircleShape snowballShape;
 	float getScorePerClick();
-	void addScorePerClick(float amount);
-	float getBoost();
 	void setBoost(float amount);
 	virtual void action();
 
 private:
 
-	float scorePerClick = 0.1;
+	float initialScorePerClick = 0.1;
 	float boost = 1;
 	Player *player;
 	sf::RenderWindow *window;

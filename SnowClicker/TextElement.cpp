@@ -17,7 +17,7 @@ TextElement::TextElement(Player *p, sf::Font *f)
 	textElement.setString("Snow gained: " + std::to_string(player->getScore()));
 	textElement.setPosition(450,300);
 
-	std::cout << "Snow gained: " + std::to_string(player->getScore()) << std::endl;
+	//std::cout << "Snow gained: " + std::to_string(player->getScore()) << std::endl;
 }
 
 // constructor for the regular text elements and other counters
@@ -41,6 +41,7 @@ void TextElement::UpdateSnowCounter(sf::RenderWindow *window)
 {
 	textElement.setString("Snow gained: " + std::to_string(player->getScore()));
 	window->draw(getText());
+	std::cout << "score from textElement: " << player->getScore() << std::endl;
 }
 
 sf::Vector2f TextElement::textPosition(float x, float y)
