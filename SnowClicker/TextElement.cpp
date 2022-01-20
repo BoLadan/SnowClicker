@@ -47,6 +47,7 @@ void TextElement::UpdateSnowCounter(sf::RenderWindow *window)
 
 	textElement.setString("Snow gained: " + stream.str());
 	window->draw(getText());
+	std::cout << "score from textElement: " << player->getScore() << std::endl;
 }
 
 sf::Vector2f TextElement::textPosition(float x, float y)

@@ -1,20 +1,23 @@
 #include "Upgrade.h"
 
 
-Upgrade::Upgrade(float posX, float posY, int upgradeCost, sf::String upgradeName, float upgradeBoost) : ClickableObject(posX, posY, 0)
+Upgrade::Upgrade(sf::Vector2f pos, float upgradeCost, sf::String upgradeName, float upgradeBoost, sf::Color color, SnowBall* sn) : ClickableObject(pos.x, pos.y, 0)
 {
-	//shapeRadius = radius;
 	rect.setSize(sf::Vector2f(200, 75));
-	rect.setFillColor(sf::Color::Red);
-	rect.setPosition(sf::Vector2f(posX, posY));
+	rect.setFillColor(color);
+	rect.setPosition(sf::Vector2f(pos));
 
 	cost = upgradeCost;
 	name = upgradeName;
 	boost = upgradeBoost;
+	snowball = sn;
+
+	//std::cout << "cost on " << this << " is: " << cost << std::endl;
 }
 
-int Upgrade::getCost()
+float Upgrade::getCost()
 {
+	//std::cout << "Returning cost on: " << this << std::endl;
 	return cost;
 }
 
@@ -30,5 +33,5 @@ float Upgrade::getBoost()
 
 void Upgrade::action()
 {
-	std::cout << "Action initiated!" << std::endl;
+
 }

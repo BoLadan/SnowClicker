@@ -17,9 +17,9 @@ int main()
     sf::Font font;
     font.loadFromFile("Fonts/CheeseToast.ttf");
 
-    Store store(&player, &window);
     SnowBall snowball(100, 200, 100, &player);
     TextElement snowCounter(&player, &font);
+    Store store(&player, &window, &snowCounter, &snowball);
 
     //sf::CircleShape shape(100.f);
 

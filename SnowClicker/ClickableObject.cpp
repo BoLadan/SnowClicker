@@ -33,10 +33,7 @@ bool ClickableObject :: inCircleBounds(Vector2i mousepos)
 	{
 		state = false;
 	}
-	/*std::cout << "Mouse X position is: " << mousepos.x << std::endl;
-	std::cout << "Mouse Y position is: " << mousepos.y << std::endl;
-	std::cout << "Magnitude is: " << magnitude << std::endl;
-	std::cout << "state of bool is: " <<state <<std::endl;*/
+
 	return state;
 }
 
