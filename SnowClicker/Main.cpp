@@ -5,21 +5,22 @@
 #include "SnowBall.h"
 #include "Upgrade.h"
 #include "TextElement.h"
+#include "Store.h"
 
 int main()
 {
+    sf::RenderWindow window(sf::VideoMode(1200, 800), "Snow CLicker");
+
     Player player;
 
     //Credits for font: Khurasan.
     sf::Font font;
     font.loadFromFile("Fonts/CheeseToast.ttf");
 
+    Store store(&player, &window);
     SnowBall snowball(100, 200, 100, &player);
-    Upgrade snowman(800, 200, 200, 75, 15, "Snowman", 0.1);
     TextElement snowCounter(&player, &font);
 
-
-    sf::RenderWindow window(sf::VideoMode(1200, 800), "Snow CLicker");
     //sf::CircleShape shape(100.f);
 
     while (window.isOpen())
@@ -44,7 +45,7 @@ int main()
                 {
                     snowball.checkForInput(window, &snowball.snowballShape);
                     snowCounter.UpdateSnowCounter(&window);
-                    snowman.checkForInput(window, &snowman.rect);
+                    store.checkForInput(window);
                 }
             }
             
@@ -53,8 +54,8 @@ int main()
         //draw
         window.clear();
         window.draw(snowball.snowballShape);
-        window.draw(snowman.rect);
         window.draw(snowCounter.getText());
+        store.draw();
         window.display();
     }
 

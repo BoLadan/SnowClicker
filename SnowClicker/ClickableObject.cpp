@@ -46,12 +46,13 @@ bool ClickableObject::inRectBounds(Vector2i mousepos, sf::Shape *shape)
 }
 
 //Preform the action of the ClickableObject. Every Child class has it's own action method.
-void ClickableObject::checkForInput(sf::RenderWindow &window, sf::Shape *shape)
+bool ClickableObject::checkForInput(sf::RenderWindow &window, sf::Shape *shape)
 {
 	if (dynamic_cast<const sf::CircleShape*>(shape) != nullptr && inCircleBounds(sf::Mouse::getPosition(window)) ||
 		dynamic_cast<const sf::RectangleShape*>(shape) != nullptr && inRectBounds(sf::Mouse::getPosition(window), shape))
 	{
 		action();
+		return true;
 	}
 	
 }
