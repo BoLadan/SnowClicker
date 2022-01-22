@@ -64,6 +64,7 @@ void Store::checkForcurrency(size_t index)
 	}
 }
 
+//subrtact upgrade cost from the player's score, update the snow and boost counter and aply the boost to the snowball.
 void Store::purchase(size_t index)
 {
 	float cost = upgrades[index]->getCost();
@@ -71,7 +72,8 @@ void Store::purchase(size_t index)
 	player->subtractFromScore(cost);
 	snowCounter->UpdateSnowCounter(renderWindow);
 	snowball->setBoost(upgrades[index]->getBoost());
-	renderWindow->draw(upgrades[index]->updateTotalBoostText());
+	//upgrades[index]->updateTotalBoostText(renderWindow);
+	renderWindow->draw(upgrades[index]->getTotalBoostText());
 }
 
 void Store::draw()
