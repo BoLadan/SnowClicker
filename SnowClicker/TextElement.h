@@ -15,8 +15,9 @@ private:
 	sf::Vector2f textPosition(float x, float y);
 
 public:
+	TextElement();
 	TextElement(Player *p, sf::Font *f);
-	TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text, float x, float y);
+	TextElement(int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text, float x, float y);
 	void UpdateSnowCounter(sf::RenderWindow *window);
 	sf::Text getText();
 };

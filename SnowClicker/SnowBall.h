@@ -14,6 +14,7 @@ public:
 	sf::CircleShape snowballShape;
 	float getScorePerClick();
 	void setBoost(float amount);
+	float getBoost();
 	virtual void action();
 
 private:
@@ -21,7 +22,6 @@ private:
 	float initialScorePerClick = 0.1;
 	float boost = 1;
 	Player *player;
-	sf::RenderWindow *window;
 
 };
 

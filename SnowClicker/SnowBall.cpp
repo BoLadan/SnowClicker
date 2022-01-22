@@ -21,6 +21,11 @@ void SnowBall::setBoost(float amount)
 	std::cout << "boost is: " << boost << std::endl;
 }
 
+float SnowBall::getBoost()
+{
+	return boost;
+}
+
 void SnowBall::action()
 {
 	player->addToScore(getScorePerClick());

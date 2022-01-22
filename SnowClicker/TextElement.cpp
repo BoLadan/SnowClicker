@@ -1,11 +1,15 @@
 #include "TextElement.h"
 
+TextElement::TextElement()
+{
+}
+
 //Constructor for the main snow counter text element.
 TextElement::TextElement(Player *p, sf::Font *f)
 {
 	player = p;
 	font = f;
-	if (!f->loadFromFile("Fonts/CheeseToast.ttf"))
+	if (!font->loadFromFile("Fonts/CheeseToast.ttf"))
 	{
 		std::cout << "COULD NOT LOAD FONT";
 	}
@@ -13,7 +17,7 @@ TextElement::TextElement(Player *p, sf::Font *f)
 	std::stringstream stream;
 	stream << std::fixed << std::setprecision(2) << player->getScore();
 
-	textElement.setFont(*f);
+	textElement.setFont(*font);
 	textElement.setCharacterSize(34);
 	textElement.setFillColor(sf::Color::White);
 	textElement.setStyle(sf::Text::Regular);
@@ -23,15 +27,17 @@ TextElement::TextElement(Player *p, sf::Font *f)
 	//std::cout << "Snow gained: " + std::to_string(player->getScore()) << std::endl;
 }
 
-// constructor for the regular text elements and other counters
-TextElement::TextElement(sf::Font *f, int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text, float x, float y)
+//constructor for the regular text elements and other counters
+TextElement::TextElement(int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text, float x, float y)
 {
-	if (!font->loadFromFile("Fonts/CheeseToast.ttf"))
+	sf::Font f;
+	f.loadFromFile("Fonts/CheeseToast.ttf");
+	if (!f.loadFromFile("Fonts/CheeseToast.ttf"))
 	{
 		std::cout << "COULD NOT LOAD FONT";
 	}
 
-	textElement.setFont(*f);
+	textElement.setFont(f);
 	textElement.setCharacterSize(characterSize);
 	textElement.setFillColor(color);
 	textElement.setStyle(textStyle);
@@ -47,7 +53,7 @@ void TextElement::UpdateSnowCounter(sf::RenderWindow *window)
 
 	textElement.setString("Snow gained: " + stream.str());
 	window->draw(getText());
-	std::cout << "score from textElement: " << player->getScore() << std::endl;
+	//std::cout << "score from textElement: " << player->getScore() << std::endl;
 }
 
 sf::Vector2f TextElement::textPosition(float x, float y)

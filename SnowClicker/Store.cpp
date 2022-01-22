@@ -8,7 +8,7 @@ Store::Store(Player *p, sf::RenderWindow *window, TextElement *sc, SnowBall *sn)
 	snowCounter = sc;
 	snowball = sn;
 
-	addItem(createUpgrade(getNextButtonPosition(), 0.1f, "Snowman", 2, sf::Color::Red));
+	addItem(createUpgrade(getNextButtonPosition(), 2, "Snowman", 2, sf::Color::Red));
 	addItem(createUpgrade(getNextButtonPosition(), 30, "Angle", 3, sf::Color::Green));
 	addItem(createUpgrade(getNextButtonPosition(), 50, "Hot chocolate", 5, sf::Color::Blue));
 	addItem(createUpgrade(getNextButtonPosition(), 80, "Sled", 6, sf::Color::Cyan));
@@ -60,7 +60,7 @@ void Store::checkForcurrency(size_t index)
 	}
 	else
 	{
-		std::cout << "You do not have enough snow to buy this upgrade";
+		std::cout << "You do not have enough snow to buy this upgrade" << std::endl;
 	}
 }
 
@@ -71,6 +71,7 @@ void Store::purchase(size_t index)
 	player->subtractFromScore(cost);
 	snowCounter->UpdateSnowCounter(renderWindow);
 	snowball->setBoost(upgrades[index]->getBoost());
+	renderWindow->draw(upgrades[index]->updateTotalBoostText());
 }
 
 void Store::draw()
@@ -78,5 +79,8 @@ void Store::draw()
 	for (size_t i = 0; i < upgrades.size(); i++)
 	{
 		renderWindow->draw(upgrades[i]->rect);
+		renderWindow->draw(upgrades[i]->getCostText());
+		renderWindow->draw(upgrades[i]->getBoostText());
+		renderWindow->draw(upgrades[i]->getTotalBoostText());
 	}
 }

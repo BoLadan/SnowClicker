@@ -17,7 +17,7 @@ int main()
     sf::Font font;
     font.loadFromFile("Fonts/CheeseToast.ttf");
 
-    SnowBall snowball(100, 200, 100, &player);
+    SnowBall snowball(100, 200, 150, &player);
     TextElement snowCounter(&player, &font);
     Store store(&player, &window, &snowCounter, &snowball);
 
