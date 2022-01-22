@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include <sstream>
+#include "TextElement.h"
 #include "ClickableObject.h"
 #include <SFML/Graphics.hpp>
 #include "Player.h"
@@ -14,7 +16,8 @@ public:
 	sf::CircleShape snowballShape;
 	float getScorePerClick();
 	void setBoost(float amount);
-	float getBoost();
+	sf::Text getTotalBoostText();
+
 	virtual void action();
 
 private:
@@ -22,6 +25,8 @@ private:
 	float initialScorePerClick = 0.1;
 	float boost = 1;
 	Player *player;
+	sf::Text totalBoostText;
+	sf::Font font;
 
 };
 

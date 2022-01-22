@@ -7,6 +7,18 @@ SnowBall::SnowBall(float x, float y, float radius, Player *p) : ClickableObject(
 	snowballShape.setFillColor(sf::Color::White);
 	snowballShape.setPosition(x, y);
 	player = p;
+
+	if (!font.loadFromFile("Fonts/CheeseToast.ttf"))
+	{
+		std::cout << "COULD NOT LOAD FONT";
+	}
+
+	totalBoostText.setFont(font);
+	totalBoostText.setCharacterSize(34);
+	totalBoostText.setFillColor(sf::Color::White);
+	totalBoostText.setStyle(sf::Text::Regular);
+	totalBoostText.setString("Total Boost is: " + std::to_string(boost));
+	totalBoostText.setPosition(450, 350);
 }
 
 float SnowBall::getScorePerClick()
@@ -18,12 +30,14 @@ float SnowBall::getScorePerClick()
 void SnowBall::setBoost(float amount)
 {
 	boost += amount;
+	
+	totalBoostText.setString("Total Boost is: " + std::to_string(boost));
 	std::cout << "boost is: " << boost << std::endl;
 }
 
-float SnowBall::getBoost()
+sf::Text SnowBall::getTotalBoostText()
 {
-	return boost;
+	return totalBoostText;
 }
 
 void SnowBall::action()

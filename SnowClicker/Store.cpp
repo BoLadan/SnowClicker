@@ -53,7 +53,7 @@ void Store::checkForcurrency(size_t index)
 {
 	float score = player->getScore();
 	float cost = upgrades[index]->getCost();
-	//std::cout << "the cost is: " << cost << std::endl;
+
 	if (score >= cost)
 	{
 		purchase(index);
@@ -72,8 +72,6 @@ void Store::purchase(size_t index)
 	player->subtractFromScore(cost);
 	snowCounter->UpdateSnowCounter(renderWindow);
 	snowball->setBoost(upgrades[index]->getBoost());
-	//upgrades[index]->updateTotalBoostText(renderWindow);
-	renderWindow->draw(upgrades[index]->getTotalBoostText());
 }
 
 void Store::draw()
@@ -83,6 +81,5 @@ void Store::draw()
 		renderWindow->draw(upgrades[i]->rect);
 		renderWindow->draw(upgrades[i]->getCostText());
 		renderWindow->draw(upgrades[i]->getBoostText());
-		renderWindow->draw(upgrades[i]->getTotalBoostText());
 	}
 }

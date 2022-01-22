@@ -55,6 +55,7 @@ int main()
         window.clear();
         window.draw(snowball.snowballShape);
         window.draw(snowCounter.getText());
+        window.draw(snowball.getTotalBoostText());
         store.draw();
         window.display();
     }

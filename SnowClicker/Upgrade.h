@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <sstream>
 #include "ClickableObject.h"
 #include "SnowBall.h"
 #include "TextElement.h"
@@ -19,7 +20,6 @@ private:
 	sf::Text totalBoostText;
 	std::stringstream costStream;
 	std::stringstream booststream;
-	std::stringstream totalBoostStream;
 
 public:
 
@@ -31,8 +31,6 @@ public:
 	float getBoost();
 	sf::Text getCostText();
 	sf::Text getBoostText();
-	sf::Text getTotalBoostText();
-	sf::Text updateTotalBoostText();
 	virtual void action();
 
 };
