@@ -37,6 +37,7 @@ bool ClickableObject :: inCircleBounds(Vector2i mousepos)
 	return state;
 }
 
+//returns true if the mouse position is within the shape
 bool ClickableObject::inRectBounds(Vector2i mousepos, sf::Shape *shape)
 {
 	return shape->getGlobalBounds().contains(sf::Vector2f(mousepos));

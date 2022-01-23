@@ -16,11 +16,13 @@ Store::Store(Player *p, sf::RenderWindow *window, TextElement *sc, SnowBall *sn)
 	addItem(createUpgrade(getNextButtonPosition(), 150, "Candy cane", 10, sf::Color::Yellow));
 }
 
+//creates upgrades
 std::shared_ptr<Upgrade> Store::createUpgrade(sf::Vector2f pos, float upgradeCost, sf::String upgradeName, float upgradeBoost, sf::Color color)
 {
 	return std::make_unique<Upgrade>(pos, upgradeCost, upgradeName, upgradeBoost, color, snowball);
 }
 
+//Calculates the positions for the upgrades.
 Vector2f Store::getNextButtonPosition()
 {
 	float firstPosition = 60;
@@ -30,6 +32,7 @@ Vector2f Store::getNextButtonPosition()
 	return Vector2f(posX, posY);
 }
 
+//Adds item to the upgrades vector
 void Store::addItem(std::shared_ptr<Upgrade> upgrade)
 {
 	upgrades.push_back(upgrade);
@@ -57,10 +60,11 @@ void Store::checkForcurrency(size_t index)
 	if (score >= cost)
 	{
 		purchase(index);
+		std::cout << "you have enough snow to purchase this upgrade." << std::endl;
 	}
 	else
 	{
-		std::cout << "You do not have enough snow to buy this upgrade" << std::endl;
+		std::cout << "You do not have enough snow to buy this upgrade..." << std::endl;
 	}
 }
 
@@ -74,6 +78,7 @@ void Store::purchase(size_t index)
 	snowball->setBoost(upgrades[index]->getBoost());
 }
 
+//draws some upgrade visuals
 void Store::draw()
 {
 	for (size_t i = 0; i < upgrades.size(); i++)

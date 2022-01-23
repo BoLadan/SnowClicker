@@ -1,9 +1,5 @@
 #include "TextElement.h"
 
-TextElement::TextElement()
-{
-}
-
 //Constructor for the main snow counter text element.
 TextElement::TextElement(Player *p, sf::Font *f)
 {
@@ -26,25 +22,6 @@ TextElement::TextElement(Player *p, sf::Font *f)
 
 	//std::cout << "Snow gained: " + std::to_string(player->getScore()) << std::endl;
 }
-
-//constructor for the regular text elements and other counters
-TextElement::TextElement(int characterSize, sf::Color color, sf::Uint32 textStyle, sf::String text, float x, float y)
-{
-	sf::Font f;
-	f.loadFromFile("Fonts/CheeseToast.ttf");
-	if (!f.loadFromFile("Fonts/CheeseToast.ttf"))
-	{
-		std::cout << "COULD NOT LOAD FONT";
-	}
-
-	textElement.setFont(f);
-	textElement.setCharacterSize(characterSize);
-	textElement.setFillColor(color);
-	textElement.setStyle(textStyle);
-	textElement.setString(text);
-	textElement.setPosition(x, y);
-}
-
 
 void TextElement::UpdateSnowCounter(sf::RenderWindow *window)
 {

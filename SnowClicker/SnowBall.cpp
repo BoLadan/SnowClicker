@@ -26,7 +26,7 @@ float SnowBall::getScorePerClick()
 	return initialScorePerClick * boost;
 }
 
-
+//Sets boost to an X amount to later aply it to the initial score per click.
 void SnowBall::setBoost(float amount)
 {
 	boost += amount;
@@ -40,6 +40,7 @@ sf::Text SnowBall::getTotalBoostText()
 	return totalBoostText;
 }
 
+//Adds score to player.
 void SnowBall::action()
 {
 	player->addToScore(getScorePerClick());
