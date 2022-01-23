@@ -23,8 +23,8 @@ std::shared_ptr<Upgrade> Store::createUpgrade(sf::Vector2f pos, float upgradeCos
 
 Vector2f Store::getNextButtonPosition()
 {
-	float firstPosition = 100;
-	float distanceBetweenButtons = 100;
+	float firstPosition = 60;
+	float distanceBetweenButtons = 125;
 	float posX = 900;
 	float posY = firstPosition + upgrades.size() * distanceBetweenButtons;
 	return Vector2f(posX, posY);
@@ -81,5 +81,6 @@ void Store::draw()
 		renderWindow->draw(upgrades[i]->rect);
 		renderWindow->draw(upgrades[i]->getCostText());
 		renderWindow->draw(upgrades[i]->getBoostText());
+		renderWindow->draw(upgrades[i]->getNameText());
 	}
 }

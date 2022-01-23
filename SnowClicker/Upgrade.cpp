@@ -18,6 +18,8 @@ Upgrade::Upgrade(sf::Vector2f pos, float upgradeCost, sf::String upgradeName, fl
 
 	booststream << std::fixed << std::setprecision(0) << boost;
 	boostText = createText(boostText, 20, sf::Color::Black, sf::Text::Regular, "Boost: " + booststream.str(), pos.x, pos.y + 20);
+
+	nameText = createText(nameText, 20, sf::Color::White, sf::Text::Regular, name, pos.x, pos.y - 25);
 }
 
 //creates and sets a taxt object and its settings.
@@ -61,6 +63,11 @@ sf::Text Upgrade::getCostText()
 sf::Text Upgrade::getBoostText()
 {
 	return boostText;
+}
+
+sf::Text Upgrade::getNameText()
+{
+	return nameText;
 }
 
 void Upgrade::action()

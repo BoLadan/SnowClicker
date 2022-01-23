@@ -17,7 +17,7 @@ private:
 	sf::Font font;
 	sf::Text costText;
 	sf::Text boostText;
-	sf::Text totalBoostText;
+	sf::Text nameText;
 	std::stringstream costStream;
 	std::stringstream booststream;
 
@@ -31,6 +31,7 @@ public:
 	float getBoost();
 	sf::Text getCostText();
 	sf::Text getBoostText();
+	sf::Text getNameText();
 	virtual void action();
 
 };
